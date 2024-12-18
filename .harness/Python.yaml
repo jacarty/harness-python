@@ -64,4 +64,3 @@ pipeline:
                     repo: jacarty/harness
                     tags:
                       - latest
-                    runAsUser: "0"
