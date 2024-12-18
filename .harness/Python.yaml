@@ -34,7 +34,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     connectorRef: DockerHub
-                    image: build_python_app
+                    image: python
                     shell: Sh
                     command: |-
                       echo "Welcome to Harness CI"
