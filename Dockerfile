@@ -1,4 +1,4 @@
-FROM python:3.5.1-alpine
+FROM python:latest
 MAINTAINER Greg Taylor <gtaylor@gc-taylor.com>
 
 RUN pip install --upgrade pip setuptools wheel
