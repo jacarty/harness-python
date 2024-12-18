@@ -1,6 +1,7 @@
 FROM python:3
 MAINTAINER Greg Taylor <gtaylor@gc-taylor.com>
 
+RUN mkdir -p /harness/wheeldir
 RUN pip install --upgrade pip setuptools wheel
 COPY wheeldir /opt/app/wheeldir
 # These are copied and installed first in order to take maximum advantage
