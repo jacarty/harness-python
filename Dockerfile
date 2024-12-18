@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3
 MAINTAINER Greg Taylor <gtaylor@gc-taylor.com>
 
 RUN pip install --upgrade pip setuptools wheel
