@@ -29,19 +29,6 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
-                  spec:
-                    connectorRef: DockerHub
-                    image: python
-                    shell: Sh
-                    command: |-
-                      echo "Welcome to Harness CI"
-                      python -m pip install --upgrade pip
-                      pip install  pytest
-                      if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-              - step:
                   type: Gitleaks
                   name: Gitleaks_1
                   identifier: Gitleaks_1
@@ -56,11 +43,24 @@ pipeline:
                     mode: orchestration
                     config: default
               - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    connectorRef: DockerHub
+                    image: python
+                    shell: Sh
+                    command: |-
+                      echo "Welcome to Harness CI"
+                      python -m pip install --upgrade pip
+                      pip install  pytest
+                      if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+              - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: DockerHub
+                    connectorRef: account.harnessImage
                     repo: jacarty/harness
                     tags:
                       - latest
